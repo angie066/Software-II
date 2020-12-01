@@ -1,38 +1,36 @@
- <?php
+<?php
     session_start();
     include("../models/conexion.php");
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1, maxium-scale=1.0, minium-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maxium-scale=1.0, minium-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>UbI | PRODUCCIÓN</title>
     <link rel="icon" href="../img/iconoub.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ranchers&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ranchers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/fontello.css">
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <script>
-     function mostrarMensaje1() {
-         alert("El producto ha sido creado exitosamente");
-     }
+    function mostrarMensaje1() {
+        alert("El producto ha sido creado exitosamente");
+    }
 
-     function mostrarMensaje2() {
-         alert("El producto ha sido modificado exitosamente");
-     }
-
+    function mostrarMensaje2() {
+        alert("El producto ha sido modificado exitosamente");
+    }
 </script>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
-                aria-controls="navbar" aria-expanded="false" aria-label="Menu Navegacion ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu Navegacion ">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -62,11 +60,13 @@
     </nav>
     <br>
     <div>
-        <img id="campana" src="../img/campana.jpg" class="rounded-circle"><hr>
+        <img id="campana" src="../img/campana.jpg" class="rounded-circle">
+        <hr>
     </div>
     <div class="text-center">
-        <h1 class="display-3" >Producción</h1>
-        <img id="logoI" src="../img/img2.jpeg" alt="Logo UB" class="rounded-circle"><hr>
+        <h1 class="display-3">Producción</h1>
+        <img id="logoI" src="../img/img2.jpeg" alt="Logo UB" class="rounded-circle">
+        <hr>
     </div>
 
     <div class="text-justify-center">
@@ -119,14 +119,14 @@
             <div class="modal-content">
                 <!--Header de la ventana-->
                 <div class="modal-header">
-                     <h2 class="modal-title">Crear Producto</h2>
+                    <h2 class="modal-title">Crear Producto</h2>
                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    
+
                 </div>
-    
+
                 <!--Contenido de la ventana-->
                 <div class="modal-body">
-                    
+
                     <form action="../models/insertProduct.php" method="POST">
                         <label>Nombre Producto: </label>
                         <input type="text" name="nombre"><br><br>
@@ -136,14 +136,14 @@
 
                         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Tipo:</span>
-                                <select name="tipo" id="tipo" style="width: 202px;">
+                            <select name="tipo" id="tipo" style="width: 202px;">
                                 <option value="">--Seleccione--</option>
-                                <?php 
+                                <?php
                                     $tipos = getTipos();
-                                    while($fila = mysqli_fetch_array($tipos)){
-                                        echo "<option value=".$fila ['ID'].">".$fila['NOMBRE']."</option>";
+                                    while ($fila = mysqli_fetch_array($tipos)) {
+                                        echo "<option value=" . $fila['ID'] . ">" . $fila['NOMBRE'] . "</option>";
                                     }
-                                ?>
+                                    ?>
                             </select>
                         </div>
 
@@ -158,25 +158,25 @@
                             <span>Clase Producto:</span>
                             <select name="claseP" id="claseP" style="width: 202px;">
                                 <option value="">--Seleccione--</option>
-                                <?php 
+                                <?php
                                     $clase = getClase();
-                                    while($fila = mysqli_fetch_array($clase)){
-                                        echo "<option value=".$fila ['ID'].">".$fila['NOMBRE']."</option>";
+                                    while ($fila = mysqli_fetch_array($clase)) {
+                                        echo "<option value=" . $fila['ID'] . ">" . $fila['NOMBRE'] . "</option>";
                                     }
-                                ?>
+                                    ?>
                             </select>
                         </div>
-    
+
                         <!--Footer de la ventana-->
-                        <div class="modal-footer"> 
+                        <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>-->
                             <button name="boton" type="submit" class="btn btn-primary" value="Crear">Crear</button>
                         </div>
-                    </form>    
+                    </form>
                 </div>
             </div>
-        </div>    
-    
+        </div>
+
         <div class="modal fade" id="ventana2">
             <div class="modal-dialog"></div>
             <div class="modal-content">
@@ -184,18 +184,18 @@
                 <div class="modal-header">
                     <h2 class="modal-title">Modificar Producto</h2>
                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    
+
                 </div>
-    
+
                 <!--Contenido de la ventana-->
                 <div class="modal-body">
-                    
+
                     <form action="../models/modificarProducto.php" method="POST">
-             
-                    <label>Nombre Producto!</label><br>
-                         <input id="nameP2" name="nameP2" type="text" value=""><br><br>
-                         <input type="hidden" name="id_p" id="id_p" value="">
-    
+
+                        <label>Nombre Producto!</label><br>
+                        <input id="nameP2" name="nameP2" type="text" value=""><br><br>
+                        <input type="hidden" name="id_p" id="id_p" value="">
+
                         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Tipo:</span>
                             <select name="tipo2" id="tipo2" style="width: 202px;">
@@ -205,10 +205,10 @@
                                     while ($fila = mysqli_fetch_array($tipos)) {
                                         echo "<option value=" . $fila['ID'] . ">" . $fila['NOMBRE'] . "</option>";
                                     }
-                                ?>
+                                    ?>
                             </select>
                         </div>
-    
+
                         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Subtipo:</span>
                             <select name="subTipo2" id="subTipo2" style="width: 202px;">
@@ -225,10 +225,10 @@
                                     while ($fila = mysqli_fetch_array($clase)) {
                                         echo "<option value=" . $fila['ID'] . ">" . $fila['NOMBRE'] . "</option>";
                                     }
-                                ?>
+                                    ?>
                             </select>
                         </div>
-    
+
                         <!--Footer de la ventana-->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -241,37 +241,37 @@
     </div>
 
     <div class="modal fade" id="ventana3">
-            <div class="modal-dialog"></div>
-            <div class="modal-content">
-                <!--Header de la ventana-->
-                <div class="modal-header">
-                    <h2 class="modal-title">Eliminar Producto</h2>
-                    <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div class="modal-dialog"></div>
+        <div class="modal-content">
+            <!--Header de la ventana-->
+            <div class="modal-header">
+                <h2 class="modal-title">Eliminar Producto</h2>
+                <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-                </div>
+            </div>
 
-                <!--Contenido de la ventana-->
-                <div class="modal-body">
+            <!--Contenido de la ventana-->
+            <div class="modal-body">
 
-                    <form action="../models/eliminarProducto.php" method="POST">
+                <form action="../models/eliminarProducto.php" method="POST">
 
-                        <h3>¿Seguro que desea eliminar el producto?</h3><br>
-                        <!--Footer de la ventana-->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                            <input type="hidden" id="eliminarP" name="eliminarP">
-                            <button type="submit" class="btn btn-success" value="Vincular">Eliminar</button>
-                        </div>
-                    </form>
-                </div>
+                    <h3>¿Seguro que desea eliminar el producto?</h3><br>
+                    <!--Footer de la ventana-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <input type="hidden" id="eliminarP" name="eliminarP">
+                        <button type="submit" class="btn btn-success" value="Vincular">Eliminar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    
+
 </body>
+
 </html>
 
 <script>
@@ -293,24 +293,24 @@
         });
     })
     $("#tipo2").on('change', function() {
-         var parametros = $(this).serialize();
-         $.ajax({
-             type: "POST",
-             url: "../models/autocomplete/subTipos.php",
-             data: parametros,
-             beforeSend: function(objeto) {
-                 $("#tipo2").attr("disabled", true);
-             },
-             success: function(datos) {
-                 $("#subTipo2").html(datos);
-                 $("#tipo2").attr("disabled", false);
-             }
-         }).fail(function() {
-             $("#tipo2").attr("disabled", false);
-             alert('Hubo problemas al cargar los datos de la marca escogida')
-         });
-     })
-     $(document).on("click", ".open-modify-modal", function() {
+        var parametros = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "../models/autocomplete/subTipos.php",
+            data: parametros,
+            beforeSend: function(objeto) {
+                $("#tipo2").attr("disabled", true);
+            },
+            success: function(datos) {
+                $("#subTipo2").html(datos);
+                $("#tipo2").attr("disabled", false);
+            }
+        }).fail(function() {
+            $("#tipo2").attr("disabled", false);
+            alert('Hubo problemas al cargar los datos de la marca escogida')
+        });
+    })
+    $(document).on("click", ".open-modify-modal", function() {
         var idCat = $(this).data('id');
         var aux = "#nombre_cat" + idCat;
         var nomCat = $(aux).val();
