@@ -31,7 +31,7 @@
     if (opcion == true) {
         mensaje = "Has clickado OK";
 	} else {
-	    mensaje = "Has clickado Cancelar";
+        mensaje = "Has clickado Cancelar";
     }
 
 }
@@ -81,7 +81,6 @@
         <h1 class="display-3" >Producción</h1>
         <img id="logoI" src="../img/img3.jpeg" alt="Logo UB" class="rounded-circle"><hr>
     </div>
-
     <table>
             <tr>
                 <th>Nombre Producto</th>
@@ -92,6 +91,7 @@
                 <th>Accion</th>
             </tr>
             <?php
+
                 $datos = getProductoPorGrupo($_SESSION['idGrupo']);
                 while ($prod = mysqli_fetch_array($datos)) {
                     echo "

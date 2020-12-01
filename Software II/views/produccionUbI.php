@@ -192,8 +192,8 @@
                     
                     <form action="../models/modificarProducto.php" method="POST">
              
-                    <label>Nombre Producto</label><br>
-                         <input id="nameP2" id="nameP2" type="text" value=""><br><br>
+                    <label>Nombre Producto!</label><br>
+                         <input id="nameP2" name="nameP2" type="text" value=""><br><br>
                          <input type="hidden" name="id_p" id="id_p" value="">
     
                         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">

@@ -50,7 +50,9 @@
     </nav>
     <br>
     <div>
-        <img id="campana" src="../img/campana.jpg" class="rounded-circle"><hr>
+        <a href="notificaciones.php">
+            <img id="campana" src="../img/campana.jpg" class="rounded-circle"><hr>
+        </a>
     </div>
     
     <div class="text-center">

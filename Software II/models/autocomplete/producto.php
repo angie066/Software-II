@@ -1,5 +1,5 @@
 <?php
-    if (isset($_POST['tipo']) || isset($_POST['tipo2'])){
+    if (isset($_POST['investigador'])){
         include("../conexion.php");
         /* If connection to database, run sql statement. */
         $data="";
@@ -8,21 +8,19 @@
         if (mysqli_connect_errno()) {
             die("imposible conectarse: " . mysqli_connect_error());
         } else {
-            $id;
-            if(isset($_POST['tipo'])) {
-                $id=$_POST['tipo'];
-            }
-            else {
-                $id=$_POST['tipo2'];
-            }
+            $id=$_POST['investigador'];
             if ($con){
-                $res_subTipo= mysqli_query($con, "select * from SUBTIPO_PRODUCTO where ID_TIPO_PRODUCTO=$id");
-                $data ='<option value="">-- Seleccione Tipo--</option>';
-                if(!$res_subTipo) {
+                $sql ="SELECT * FROM PRODUCCION
+                INNER JOIN CATEGORIA_PRODUCTO 
+                ON PRODUCCION.ID_CATEGORIA_PRODUCTO=CATEGORIA_PRODUCTO.ID
+                where ID_INVESTIGADOR=$id";
+                $res_programa= mysqli_query($con, $sql);
+                $data ='';
+                if(!$res_programa) {
                     echo "Error: ".mysqli_error($con);
                 }
-                while($rw = mysqli_fetch_array($res_subTipo)) {
-                    $data.="<option value='".$rw['ID']."'>".$rw['NOMBRE']."</option>";
+                while($rw = mysqli_fetch_array($res_programa)) {
+                    $data.="<option value='".$rw['ID_CATEGORIA_PRODUCTO']."'>".$rw['NOMBRE']."</option>";
                 }
             }
     

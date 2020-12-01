@@ -18,7 +18,7 @@
            /**  se cierra la conexion */
             mysqli_close($con);            
             echo '<script language="javascript">';
-            echo 'alert("Se ha actualizado a  '.$nombre.' !");';
+            echo 'alert("Se ha actualizado a  '.$nombre.' ");';
             echo 'window.location.href = "../views/produccionUbI.php";';
             echo '</script>';
        }

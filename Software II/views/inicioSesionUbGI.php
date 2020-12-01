@@ -1,4 +1,11 @@
-<?php 
+<?php
+    session_start();
+    if(isset($_SESSION['id'])) {
+        unset($_SESSION['id']);
+    }
+    if(isset($_SESSION['idGrupo'])) {
+        unset($_SESSION['idGrupo']);
+    }
     include("../models/conexion.php");  
 ?>
 

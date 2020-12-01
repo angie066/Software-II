@@ -8,15 +8,24 @@
         if (mysqli_connect_errno()) {
             echo "Error en la conexión: " . mysqli_connect_error();
         }
-        $sql = "DELETE FROM CATEGORIA_PRODUCTO WHERE ID=$id;";
-
+        $sql = "DELETE FROM PRODUCCION WHERE ID_CATEGORIA_PRODUCTO=$id;";
         if(mysqli_query($con,$sql)){
-            /**  se cierra la conexion */
+            $sql = "DELETE FROM CATEGORIA_PRODUCTO WHERE ID=$id;";
+            if(mysqli_query($con,$sql)){
+                /**  se cierra la conexion */
+                    mysqli_close($con);            
+                    echo '<script language="javascript">';
+                    echo 'alert("Se ha Eliminado correctamente");';
+                    echo 'window.location.href = "../views/produccionUbI.php";';
+                    echo '</script>';
+            } else {
+                $error = mysqli_error($con);
                 mysqli_close($con);            
                 echo '<script language="javascript">';
-                echo 'alert("Se ha Eliminado correctamente");';
+                echo 'alert("No se ha Eliminado correctamente, '.$error.'");';
                 echo 'window.location.href = "../views/produccionUbI.php";';
                 echo '</script>';
+            }
         }
         else{
             $error = mysqli_error($con);
