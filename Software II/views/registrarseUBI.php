@@ -54,6 +54,7 @@
                 <option value="Posgrado">Posgrado</option>
                 <option value="Especializacion">Especializacion</option>
                 <option value="Magister">Magister</option>
+                <option value="Doctorado">Doctorado</option>
             </select>
         </div>
 
