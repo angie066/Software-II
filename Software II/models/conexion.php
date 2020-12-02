@@ -152,8 +152,8 @@ function getProduct($id) {
 		TIPO_PRODUCTO.NOMBRE as NOMBRE_TIPOP,
 		CLASE_PRODUCTO.NOMBRE as NOMBRE_CLASEP,
 		PRODUCCION.ID_INVESTIGADOR as ID_INVESTIGADOR
-		FROM CATEGORIA_PRODUCTO 
-		INNER JOIN SUBTIPO_PRODUCTO 
+		FROM CATEGORIA_PRODUCTO
+		INNER JOIN SUBTIPO_PRODUCTO
 		ON CATEGORIA_PRODUCTO.ID_SUBTIPO_PRODUCTO=SUBTIPO_PRODUCTO.ID 
 		INNER JOIN TIPO_PRODUCTO 
 		ON TIPO_PRODUCTO.ID = SUBTIPO_PRODUCTO.ID_TIPO_PRODUCTO 
@@ -275,5 +275,16 @@ function getProductoPorGrupo($id) {
 	$resultado = mysqli_query($con,$sql);
 	mysqli_close($con);
 	return $resultado;
+}
+function getUserById($id) {
+	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
+	$str_datos = "";
+	if (mysqli_connect_errno()) {
+		$str_datos.= "Error en la conexión: " . mysqli_connect_error();
+	}
+	$sql = "SELECT * FROM INVESTIGADOR where ID=$id";
+	$resultado = mysqli_query($con,$sql);
+	mysqli_close($con);
+	return mysqli_fetch_array($resultado);
 }
 ?>
