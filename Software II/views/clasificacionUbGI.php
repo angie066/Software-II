@@ -6,6 +6,8 @@
         $subTipo1 = 0;
         $subTipo2 = 0;
         $subTipo3 = 0;
+        $subTipo4 = 0;
+        $subTipo5 = 0;
        
         $resultado = getProductoPorGrupo($_SESSION['idGrupo']);
         while ($product =mysqli_fetch_array($resultado)){
@@ -27,7 +29,6 @@
         $ind_art_r = (10 * $lambdaArt_a1) + (6 * $lambdaArt_a2);
         $ind_lib = (10 * $lambdaLib_a1)
     }
-
 ?>
 
 <!DOCTYPE html>
