@@ -19,6 +19,8 @@
         while ($inv = mysqli_fetch_array($investigadores)){
             $autores++;
         }
+
+        echo $autores;
        
         $resultado = getProductoPorGrupo($_SESSION['idGrupo']);
         $productos = 0;
@@ -49,13 +51,13 @@
             }
         }
 
-        $lambdaArt_a1 = log[($subTipo1/7)+1];
-        $lambdaArt_a2 = log[($subTipo2/7)+1];
-        $lambdaLib_a1 = log[($subTipo3/7)+1];
-        $lambdaLib_a = log[($subTipo4/7)+1];
-        $lambdaArt_b = log[($subTipo5/7)+1];
-        $lambdaArt_c = log[($subTipo6/7)+1];
-        $lambdaLib_b = log[($subTipo7/7)+1];
+        $lambdaArt_a1 = log(($subTipo1/7)+1);
+        $lambdaArt_a2 = log(($subTipo2/7)+1);
+        $lambdaLib_a1 = log(($subTipo3/7)+1);
+        $lambdaLib_a = log(($subTipo4/7)+1);
+        $lambdaArt_b = log(($subTipo5/7)+1);
+        $lambdaArt_c = log(($subTipo6/7)+1);
+        $lambdaLib_b = log(($subTipo7/7)+1);
 
         $ind_art_r = (10 * $lambdaArt_a1) + (6 * $lambdaArt_a2) + (3.5 * $lambdaArt_b) + (2*$lambdaArt_c); //Indicador Articulo de Investigación
         $ind_lib = (10 * $lambdaLib_a1) + (9 * $lambdaLib_a) + (8 * $lambdaLib_b); //Indicador de libros
@@ -157,36 +159,30 @@
                 <th>Tipo</th>
                 <th></th>
                 <th></th>
-                <th>Requisitos que cumple</th>
-                <th>Requisitos</th>
             </tr>
             <tr>
-                <td rowspan="2">A</td>
+                <td rowspan="2">A1</td>
                 <td rowspan="2"><img id="chulo" src="../img/chulito.jpeg"></td>
                 <td><img id="chulo" src="../img/chulito.jpeg"></td>
-                <td>(5) Producto tipo top A</td>
-                <td>(5) Producto tipo top A</td>
             </tr>
             <tr>
                 <td><img id="chulo" src="../img/chulito.jpeg"></td>
-                <td>(2) Trabajo de maestría</td>
-                <td>(2) Trabajo de maestría</td>
             </tr>
             <tr>
-                <td rowspan="2">B</td>
+                <td>A</td>
+                <td><img id="x" src="../img/x.jpeg"></td>
+                <td><img id="x" src="../img/x.jpeg"></td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td><img id="x" src="../img/x.jpeg"></td>
+                <td><img id="x" src="../img/x.jpeg"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">C</td>
                 <td rowspan="2"><img id="x" src="../img/x.jpeg"></td>
                 <td><img id="x" src="../img/x.jpeg"></td>
-                <td>(2) Producto tipo top A</td>
-                <td>(5) Producto tipo top A</td>
             </tr>
-            <tr>
-                <td><img id="chulo" src="../img/chulito.jpeg"></td>
-                <td>(1) Trabajo de maestría</td>
-                <td>(1) Trabajo de maestría</td>
-            </tr>
-    </div>
-    <div class="text-center">
-        <p class="center-content simular"><input type="submit" class="btn btn-danger" value="Simular"></p>
     </div>
     
 </body>
