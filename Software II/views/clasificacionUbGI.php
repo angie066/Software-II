@@ -1,3 +1,32 @@
+<?php
+    session_start();
+    include("../models/conexion.php");
+    
+    if(isset($_SESSION['id'])) {
+        subTipo1 = 0;
+        subTipo2 = 0;
+        subTipo3 = 0;
+       
+        while ($product = mysqli_fetch_array($productos)) {
+            if($product['ID_CLASE'] == 1) { // tipo top
+                $cantTipoTop++;
+                if($product['ID_CLASE'] == 1) {
+                    $desTecTipoTop++;
+                } else if ($product['ID_CLASE'] == 2) {
+                    $nuevoCTipoTop++;
+                }
+            } else if( $product['ID_CLASE'] == 2 ) { // tipo A
+                $cantTipoA++;
+                if($product['ID_CLASE'] == 1) { // clase desarrollo
+                    $desTecTipoA++;
+                } else if ($product['ID_CLASE'] == 2) { // nuevo conocimiento
+                    $nuevoCTipoA++;
+                }
+            }
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
