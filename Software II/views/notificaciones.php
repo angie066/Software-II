@@ -55,7 +55,6 @@
     </nav>
     <br>
     <div>
-        <img id="user" src="../img/user.jpg" class="rounded-circle">
         <img id="campana" src="../img/campana.jpg" class="rounded-circle"><hr>
     </div>
     
