@@ -51,7 +51,6 @@ if(isset($_SESSION['idGrupo'])) {
         </div>
 
         <div class="text-center">
-            <a class="olvidar" href=""><u>¿Olvidaste tu contraseña?</u></a><br><br/>
             <a class="registro" href="registrarseUBI.php"><u>¿No estas registrado?</u></a><br><br/>
         </div>
 
