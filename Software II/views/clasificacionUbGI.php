@@ -3,31 +3,51 @@
     include("../models/conexion.php");
     
     if(isset($_SESSION['id'])) {
-        $subTipo1 = 0;
-        $subTipo2 = 0;
-        $subTipo3 = 0;
-        $subTipo4 = 0;
-        $subTipo5 = 0;
+        // Tipo Top
+        $subTipo1 = 0; // Articulo A1
+        $subTipo2 = 0; // Articulo A2
+        $subTipo3 = 0; // Libro A1
+        $subTipo4 = 0; // Libro A
+        //Tipo A
+        $subTipo5 = 0; // Articulo B
+        $subTipo6 = 0; // Articulo C
+        $subTipo7 = 0; // Libro B
        
         $resultado = getProductoPorGrupo($_SESSION['idGrupo']);
         while ($product =mysqli_fetch_array($resultado)){
-            if($product ['ID_SUBTIPO']==5){
+            if($product ['ID_SUBTIPO']==){ // Articulo A1
                 $subTipo1++;
             }
-            if($product ['ID_SUBTIPO']==6){
+            if($product ['ID_SUBTIPO']==){// Articulo A2
                 $subTipo2++;
             }
-            if($product ['ID_SUBTIPO']==7){
+            if($product ['ID_SUBTIPO']==){// Libro A1
                 $subTipo3++;
+            }
+            if($product ['ID_SUBTIPO']==){// Libro A
+                $subTipo4++;
+            }
+            if($product ['ID_SUBTIPO']==){// Articulo B
+                $subTipo5++;
+            }
+            if($product ['ID_SUBTIPO']==){// Articulo C
+                $subTipo6++;
+            }
+            if($product ['ID_SUBTIPO']==){// Libro B
+                $subTipo7++;
             }
         }
 
         $lambdaArt_a1 = log[($subTipo1/7)+1];
         $lambdaArt_a2 = log[($subTipo2/7)+1];
-        $lambdaLib_a1 = log[($subTipo3/5)+1];
+        $lambdaLib_a1 = log[($subTipo3/7)+1];
+        $lambdaLib_a = log[($subTipo4/7)+1];
+        $lambdaArt_b = log[($subTipo5/7)+1];
+        $lambdaArt_c = log[($subTipo6/7)+1];
+        $lambdaLib_b = log[($subTipo7/7)+1];
 
-        $ind_art_r = (10 * $lambdaArt_a1) + (6 * $lambdaArt_a2);
-        $ind_lib = (10 * $lambdaLib_a1)
+        $ind_art_r = (10 * $lambdaArt_a1) + (6 * $lambdaArt_a2) + (3.5 * $lambdaArt_b) + (2*$lambdaArt_c); //Indicador Articulo de Investigación
+        $ind_lib = (10 * $lambdaLib_a1) + (9 * $lambdaLib_a) + (8 * $lambdaLib_b); //Indicador de libros
     }
 ?>
 
