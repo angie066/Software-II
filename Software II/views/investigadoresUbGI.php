@@ -149,7 +149,7 @@
         <div class="modal-content">
             <!--Header de la ventana-->
             <div class="modal-header">
-                <h2 class="modal-title">Eliminar Producto</h2>
+                <h2 class="modal-title">Eliminar Investigador</h2>
                 <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
             </div>
