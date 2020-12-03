@@ -12,33 +12,42 @@
         $subTipo5 = 0; // Articulo B
         $subTipo6 = 0; // Articulo C
         $subTipo7 = 0; // Libro B
+
+        $investigadores = getUserById($_SESSION['id']);
+        $autores = 0;
+
+        while ($inv = mysqli_fetch_array($investigadores)){
+            $autores++;
+        }
        
         $resultado = getProductoPorGrupo($_SESSION['idGrupo']);
+        $productos = 0;
+
         while ($product =mysqli_fetch_array($resultado)){
-            if($product ['ID_SUBTIPO']==){ // Articulo A1
+            $productos++;
+
+            if($product ['ID_SUBTIPO']==5){ // Articulo A1
                 $subTipo1++;
             }
-            if($product ['ID_SUBTIPO']==){// Articulo A2
+            if($product ['ID_SUBTIPO']==6){// Articulo A2
                 $subTipo2++;
             }
-            if($product ['ID_SUBTIPO']==){// Libro A1
+            if($product ['ID_SUBTIPO']==7){// Libro A1
                 $subTipo3++;
             }
-            if($product ['ID_SUBTIPO']==){// Libro A
+            if($product ['ID_SUBTIPO']==8){// Libro A
                 $subTipo4++;
             }
-            if($product ['ID_SUBTIPO']==){// Articulo B
+            if($product ['ID_SUBTIPO']==9){// Articulo B
                 $subTipo5++;
             }
-            if($product ['ID_SUBTIPO']==){// Articulo C
+            if($product ['ID_SUBTIPO']==10){// Articulo C
                 $subTipo6++;
             }
-            if($product ['ID_SUBTIPO']==){// Libro B
+            if($product ['ID_SUBTIPO']==11){// Libro B
                 $subTipo7++;
             }
         }
-
-        
 
         $lambdaArt_a1 = log[($subTipo1/7)+1];
         $lambdaArt_a2 = log[($subTipo2/7)+1];
