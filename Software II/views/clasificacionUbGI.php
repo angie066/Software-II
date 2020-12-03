@@ -3,27 +3,29 @@
     include("../models/conexion.php");
     
     if(isset($_SESSION['id'])) {
-        subTipo1 = 0;
-        subTipo2 = 0;
-        subTipo3 = 0;
+        $subTipo1 = 0;
+        $subTipo2 = 0;
+        $subTipo3 = 0;
        
-        while ($product = mysqli_fetch_array($productos)) {
-            if($product['ID_CLASE'] == 1) { // tipo top
-                $cantTipoTop++;
-                if($product['ID_CLASE'] == 1) {
-                    $desTecTipoTop++;
-                } else if ($product['ID_CLASE'] == 2) {
-                    $nuevoCTipoTop++;
-                }
-            } else if( $product['ID_CLASE'] == 2 ) { // tipo A
-                $cantTipoA++;
-                if($product['ID_CLASE'] == 1) { // clase desarrollo
-                    $desTecTipoA++;
-                } else if ($product['ID_CLASE'] == 2) { // nuevo conocimiento
-                    $nuevoCTipoA++;
-                }
+        $resultado = getProductoPorGrupo($_SESSION['idGrupo']);
+        while ($product =mysqli_fetch_array($resultado)){
+            if($product ['ID_SUBTIPO']==5){
+                $subTipo1++;
+            }
+            if($product ['ID_SUBTIPO']==6){
+                $subTipo2++;
+            }
+            if($product ['ID_SUBTIPO']==7){
+                $subTipo3++;
             }
         }
+
+        $lambdaArt_a1 = log[($subTipo1/7)+1];
+        $lambdaArt_a2 = log[($subTipo2/7)+1];
+        $lambdaLib_a1 = log[($subTipo3/5)+1];
+
+        $ind_art_r = (10 * $lambdaArt_a1) + (6 * $lambdaArt_a2);
+        $ind_lib = (10 * $lambdaLib_a1)
     }
 
 ?>
