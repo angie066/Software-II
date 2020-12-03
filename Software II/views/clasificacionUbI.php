@@ -103,8 +103,8 @@
                 <th>Requisitos</th>
             </tr>
             <tr>
-                <td rowspan="4">Investigador Emerito</td>
-                <td rowspan="4">
+                <td rowspan="3">Investigador Emerito</td>
+                <td rowspan="3">
                     <?php 
                         if( ($nivelF == 'Doctorado' || $nivelF == 'doctorado') &&
                             ($cantTipoA+$cantTipoTop > 0) &&
@@ -139,11 +139,6 @@
                 </td>
                 <td><?php echo  $cantTipoA+$cantTipoTop;?></td>
                 <td>Producto tipo top o tipo A</td>
-            </tr>
-            <tr>
-                <td>IDK</td> <!-- // falta en el primer if -->
-                <td>RIP</td>
-                <td>Vínculo con una institución nacional de investigación</td>
             </tr>
             <tr>
                 <td>
