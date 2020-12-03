@@ -44,10 +44,6 @@
             <input type="password" class="field" name="contrasenia"><br/>
         </div>
 
-        <div class="text-center">
-            <a class="olvidar" href=""><u>¿Olvidaste tu contraseña?</u></a><br><br/>
-        </div>
-
         <input type="submit" class="btn btn-primary" name="ingresar" value="Ingresar">
 
     </form>
