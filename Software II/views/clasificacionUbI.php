@@ -9,7 +9,7 @@
     $desTecTipoTop=0;
     $cantTipoA = 0;
     $cantTipoTop = 0;
-    echo 'entra';
+    
     if(isset($_SESSION['id'])) {
         $id = $_SESSION['id'];
         $investigador = getUserById($id);
@@ -294,9 +294,6 @@
                 </td>
                 <td>5 productos de nuevo conocimiento o de resultado de actividad de desarrollo tecnológico e innovación</td>
             </tr>
-    </div>
-    <div class="text-center">
-        <p class="center-content simular"><input type="submit" class="btn btn-danger" value="Simular"></p>
     </div>
     
 </body>
