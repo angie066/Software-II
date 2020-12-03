@@ -139,7 +139,6 @@
                     <!--Footer de la ventana-->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" value="Vincular">Vincular</button>
                     </div>
                 </div>
             </div>
@@ -165,7 +164,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         <input type="hidden" id="desvincularInv" name="desvincularInv">
-                        <button type="submit" class="btn btn-success" value="Vincular">Eliminar</button>
+                        <button type="submit" class="btn btn-success" value="Eliminar">Eliminar</button>
                     </div>
                 </form>
             </div>

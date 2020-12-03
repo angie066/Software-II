@@ -20,14 +20,14 @@
                 mysqli_close($con);            
                 echo '<script language="javascript">';
                 echo 'alert("Se ha desvinculado ");';
-                echo 'window.location.href = "../views/produccionUbGI.php";';
+                echo 'window.location.href = "../views/investigadoresbGI.php";';
                 echo '</script>';
             } else {
                 /**  se cierra la conexion */
                 mysqli_close($con);            
                 echo '<script language="javascript">';
                 echo 'alert("No se ha actualizado el historial ");';
-                echo 'window.location.href = "../views/produccionUbGI.php";';
+                echo 'window.location.href = "../views/investigadoresUbGI.php";';
                 echo '</script>';
             }
         }
@@ -36,20 +36,20 @@
             mysqli_close($con);
             echo '<script language="javascript">';
             echo 'alert("No se ha desvinculado Error:  '.$error.' ");';
-            echo 'window.location.href = "../views/produccionUbGI.php";';
+            echo 'window.location.href = "../views/investigadoresUbGI.php";';
             echo '</script>';
             
 
             echo '<script language="javascript">';
             echo 'alert("Error desvinculando")';
             /**  se cierra la conexion */
-            echo 'window.location.href = "../views/produccionUbGI.php";';
+            echo 'window.location.href = "../views/investigadoresUbGI.php";';
             echo '</script>';
         }
     } else {
         echo '<script language="javascript">';
         echo 'alert("Error desvinculando, no hay datos suficientes")';
-        echo 'window.location.href = "../views/produccionUbGI.php";';
+        echo 'window.location.href = "../views/investigadoresUbGI.php";';
         echo '</script>';
     }
 ?>
