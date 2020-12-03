@@ -38,6 +38,8 @@
             }
         }
 
+        
+
         $lambdaArt_a1 = log[($subTipo1/7)+1];
         $lambdaArt_a2 = log[($subTipo2/7)+1];
         $lambdaLib_a1 = log[($subTipo3/7)+1];
@@ -48,6 +50,30 @@
 
         $ind_art_r = (10 * $lambdaArt_a1) + (6 * $lambdaArt_a2) + (3.5 * $lambdaArt_b) + (2*$lambdaArt_c); //Indicador Articulo de Investigación
         $ind_lib = (10 * $lambdaLib_a1) + (9 * $lambdaLib_a) + (8 * $lambdaLib_b); //Indicador de libros
+
+        //Peso Global Subtipo
+        $pesoArt_a1 = 100 * 10;
+        $pesoArt_a2 = 100 * 6;
+        $pesoLib_a1 = 300 * 10;
+        $pesoLib_a = 300 * 9;
+        $pesoArt_b = 100 * 3.5;
+        $pesoArt_c = 100 * 2;
+        $pesoLib_b = 300 * 8;
+
+        //Indicador clase TOP
+        $indClass_top = ($lambdaArt_a1 * $pesoArt_a1) + ($lambdaArt_a2 * $pesoArt_a2) + ($lambdaLib_a1 * $pesoLib_a1) + ($lambdaLib_a * $pesoLib_a);
+
+        //Indicador clase A
+        $indClass_a = ($lambdaArt_b * $pesoArt_b) + ($lambdaArt_c *$pesoArt_c) + ($lambdaLib_b * $pesoLib_b);
+
+        //Indicador Cohesión
+        $indCo = ($autores/$productos)-1;
+
+        //Indicador Cooperación
+        $indCoop = (1/$productos)-1;
+
+        //Indicador de grupo
+        $indGrupo = (4 * $indClass_top) + (2.5 * $indClass_a) + (0.4 * $indCo) + (0.4 * $indCoop);
     }
 ?>
 
