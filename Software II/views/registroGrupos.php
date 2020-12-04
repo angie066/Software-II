@@ -27,15 +27,15 @@
     
     <form id="formUBI" action="../models/insertGrup.php" method="POST">
 
-        <p>Nombre: <input type="text" class="field float-right" name="nombre"><br/></p>
+        <p>Nombre: <input type="text" class="field float-right" name="nombre" required><br/></p>
 
-        <p>Fecha de inscripcion: <input type="date" class="field float-right" name="fechaIns" style="width: 202px;"><br/></p>
+        <p>Fecha de inscripcion: <input type="date" class="field float-right" name="fechaIns" style="width: 202px; required"><br/></p>
 
-        <p>Fecha de certificación: <input type="date" class="field float-right" name="fechaC" style="width: 202px;"><br/></p>
+        <p>Fecha de certificación: <input type="date" class="field float-right" name="fechaC" style="width: 202px; required"><br/></p>
         
-        <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;" >
             <span>Lider del grupo:</span>
-            <select name="lider" id="lider" style="width: 202px;">
+            <select name="lider" id="lider" style="width: 202px;" required>
                 <option value="">--Seleccione--</option>
                 <?php 
                     $investigadores = getInvestigadoresNoLider();
@@ -48,7 +48,7 @@
 
         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
             <span>Facultad:</span>
-            <select name="facultad" id="facultad" style="width: 202px;">
+            <select name="facultad" id="facultad" style="width: 202px;" required>
                 <option value="">--Seleccione--</option>
                 <?php 
                     $facultades = getFacultades();
@@ -61,14 +61,14 @@
 
         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
             <span>Programa:</span>
-            <select name="programa" id="programa" style="width: 202px;">
+            <select name="programa" id="programa" style="width: 202px;" required>
             <option value="">-Selecciona Facultad-</option>
         </select>
         </div>
 
         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
             <span>Area de conocimiento:</span>
-            <select name="areaCon" id="areaCon" style="width: 202px;">
+            <select name="areaCon" id="areaCon" style="width: 202px;" required>
                 <option value="">--Seleccione--</option>
                 <?php 
                     $subareas = getSubareas();
@@ -81,7 +81,7 @@
         
         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
             <span>Ciudad:</span>
-            <select name="ciudad" id="ciudad" style="width: 202px;">
+            <select name="ciudad" id="ciudad" style="width: 202px;" required>
                 <option value="">--Seleccione--</option>
                 <?php 
                     $ciudades = getCiudades();
