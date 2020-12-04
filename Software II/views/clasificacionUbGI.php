@@ -12,20 +12,14 @@
         $subTipo5 = 0; // Articulo B
         $subTipo6 = 0; // Articulo C
         $subTipo7 = 0; // Libro B
-
         $investigadores = getUserById($_SESSION['id']);
-        $autores = 0;
-
-        while ($inv = mysqli_fetch_array($investigadores)){
-            $autores++;
-        }
+        $autores = count($investigadores);
 
         echo $autores;
        
         $resultado = getProductoPorGrupo($_SESSION['idGrupo']);
         $productos = 0;
-
-        while ($product =mysqli_fetch_array($resultado)){
+        while ($product =mysqli_fetch_array($resultado)) {
             $productos++;
 
             if($product ['ID_SUBTIPO']==5){ // Articulo A1
