@@ -27,15 +27,15 @@
     
     <form id="formUBI" action="../models/insertInv.php" method="POST">
 
-        <p>Nombre: <input type="text" class="field float-right" name="nombre" style="width: 244px;"><br/></p>
+        <p>Nombre: <input type="text" class="field float-right" name="nombre" style="width: 244px;" required><br/></p>
 
-        <p>Fecha de Inicio: <input type="date" style="width: 244px" class="field float-right" name="fechaIn"><br/></p>
+        <p>Fecha de Inicio: <input type="date" style="width: 244px" class="field float-right" name="fechaIn" required><br/></p>
 
-        <p>Fecha de Nacimiento: <input type="date" style="width: 244px;" class="field float-right" name="fechaNac"><br/></p>
+        <p>Fecha de Nacimiento: <input type="date" style="width: 244px;" class="field float-right" name="fechaNac" required><br/></p>
         
         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
             <span>Nacionalidad:</span>
-            <select name="nacionalidad" id="nacionalidad" style="width: 244px;">
+            <select name="nacionalidad" id="nacionalidad" style="width: 244px;" required>
                 <option value="">--------------Seleccione--------------</option>
                 <?php 
                     $nacionalidades = getNacionalidades();
@@ -48,7 +48,7 @@
 
         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
             <span>Nivel de Formacion:</span>
-            <select name="nivelF" id="nivelF" style="width: 244px;">
+            <select name="nivelF" id="nivelF" style="width: 244px;" required>
                 <option value="">--------------Seleccione--------------</option>
                 <option value="Pregrado">Pregrado</option>
                 <option value="Posgrado">Posgrado</option>
@@ -58,11 +58,11 @@
             </select>
         </div>
 
-        <p>Horas Dedicadas: <input type="text" class="field float-right" name="hora" style="width:244px;"><br/></p>
+        <p>Horas Dedicadas: <input type="text" class="field float-right" name="hora" style="width:244px;" required><br/></p>
         
-        <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <div style=" display: flex; justify-content: space-between; margin-bottom: 10px; required">
             <span>Facultad:</span>
-            <select name="facultad" id="facultad" style="width: 244px;">
+            <select name="facultad" id="facultad" style="width: 244px;" required>
                 <option value="">--------------Seleccione--------------</option>
                 <?php 
                     $facultades = getFacultades();
@@ -75,7 +75,7 @@
         
         <div style=" display: flex; justify-content: space-between; margin-bottom: 10px;">
             <span>Programa:</span>
-            <select name="programa" id="programa" style="width: 244px;">
+            <select name="programa" id="programa" style="width: 244px;" required>
             <option value="">----------Selecciona Facultad----------</option>
         </select>
         </div>
@@ -84,7 +84,7 @@
             <label>Correo:</label>
             <div class="field float-right">
                 <div class="input-group-prepend">
-                    <input type="text" class="field float-right" name="correo" style="width:100px; high:10px;">
+                    <input type="text" class="field float-right" name="correo" style="width:100px; high:10px;" required>
                     <span class="input-group-text" style="width:145px;">@uniboyaca.edu.co</span> 
                 </div>
             </div>
@@ -92,9 +92,7 @@
         
         <p>Código: <input type="text" class="field float-right" name="codigo" style="width:244px;"><br/></p>
         
-        <p>Contraseña:  <input type="password" class="field float-right" name="password" style="width:244px;"><br/></p>
-
-        <small>Su contraseña debe contener entre 8 a 16 caracteres, contener letras, números y mayúsculas.</small>
+        <p>Contraseña:  <input type="password" class="field float-right" name="password" style="width:244px;" required><br/></p>
 
         <p class="center-content"><input id="boton" type="submit" class="btn btn-outline-danger" value="Registrar"></p>
 
