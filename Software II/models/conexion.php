@@ -288,4 +288,21 @@ function getUserById($id) { //Trae los usuarios por id
 	mysqli_close($con);
 	return mysqli_fetch_array($resultado);
 }
+
+function getParticipacion($id) {
+	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
+	$str_datos = "";
+	if (mysqli_connect_errno()) {
+		$str_datos.= "Error en la conexión: " . mysqli_connect_error();
+	}
+	$sql = "SELECT GRUPO.NOMBRE, HISTORIALXINVESTIGADOR.INICIO,
+	HISTORIALXINVESTIGADOR.FIN 
+	FROM HISTORIALXINVESTIGADOR 
+	INNER JOIN GRUPO
+	ON GRUPO.ID = HISTORIALXINVESTIGADOR.ID_GRUPO
+	where ID_INVESTIGADOR =$id";
+	$resultado = mysqli_query($con,$sql);
+	mysqli_close($con);
+	return $resultado;
+}
 ?>
