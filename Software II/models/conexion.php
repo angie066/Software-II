@@ -305,4 +305,16 @@ function getParticipacion($id) {
 	mysqli_close($con);
 	return $resultado;
 }
+
+function getGrupos() {
+	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
+	$str_datos = "";
+	if (mysqli_connect_errno()) {
+		$str_datos.= "Error en la conexión: " . mysqli_connect_error();
+	}
+	$sql = "SELECT * FROM GRUPO";
+	$resultado = mysqli_query($con,$sql);
+	mysqli_close($con);
+	return $resultado;
+}
 ?>

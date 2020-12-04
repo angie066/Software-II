@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+    include("../models/conexion.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,30 +23,23 @@
 
 <body>
     <div class="text-center">
-        <h1 class="display-3">ADMINISTRADOR</h1>
+        <h1 class="display-3">Informe Grupos</h1>
         <img id="img4" src="../img/img4.jpeg" alt="Logo UB" class="rounded-circle">
         <hr>
     </div>
 
-    <div class="text-center">
-        <form action="registroGrupos.php">
-            <button id="registroGrupos" href="registroGrupos.php" class="btn btn-outline-danger" value="Crear Grupo"
-                style="width: 160px; height:160px"><img src="../img/img7.jpeg" alt="Not found" width="105px"
-                    height="105px">
-                <p>Crear grupo</p>
-            </button>
-            <p></p>
-        </form>
-            <form action="informeGrupo.php">
-                <button id="Grupos" class="btn btn-outline-info" value="Grupos">Grupos</button>
-            </form>
-            <form action="">
-                
-                <p></p>
-                <button id="Investigador" class="btn btn-outline-success" value="Investigadores"> Investigadores</button>
-            </form>
-        </div>
-    
+    <?php
+        $grupos = getGrupos();
+
+        while( $grupo = mysqli_fetch_array($grupos)) {
+            echo 'gg'.$grupo['ID'];
+            echo '<tr><th>'.$grupo['NOMBRE'].'</th></tr>';
+            $investigadores = getInvestigadoresPorIdGrupo($grupo['ID']);
+            while($investigador = mysqli_fetch_array($investigadores)) {
+                echo '<tr><td>'.$investigador['NOMBRE'].'</tr></td>';
+            }
+        }
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
