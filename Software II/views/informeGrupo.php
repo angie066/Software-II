@@ -30,15 +30,22 @@
 
     <?php
         $grupos = getGrupos();
-
+        echo '<div >';
         while( $grupo = mysqli_fetch_array($grupos)) {
-            echo 'gg'.$grupo['ID'];
-            echo '<tr><th>'.$grupo['NOMBRE'].'</th></tr>';
-            $investigadores = getInvestigadoresPorIdGrupo($grupo['ID']);
+            echo '<table><tr><th>'.$grupo['NOMBRE'].'</th></tr>';
+            $investigadores = getInvestigadoresPorIdGrupoConLider($grupo['ID']);
+            
+            $cont =0;
             while($investigador = mysqli_fetch_array($investigadores)) {
+                $cont++;
                 echo '<tr><td>'.$investigador['NOMBRE'].'</tr></td>';
             }
+            if($cont == 0) {
+                echo '<tr><td>No tiene investigadores</tr></td>';
+            }
+            echo '</table>';
         }
+        echo '</div>';
     ?>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
