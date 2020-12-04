@@ -12,14 +12,19 @@
         $subTipo5 = 0; // Articulo B
         $subTipo6 = 0; // Articulo C
         $subTipo7 = 0; // Libro B
-        $investigadores = getUserById($_SESSION['id']);
-        $autores = count($investigadores);
 
-        echo $autores;
+        $investigadores = getUserById($_SESSION['id']);
+        $autores = 0;
+
+        while ($inv = mysqli_fetch_array($investigadores)){
+            $autores++;
+        }
+        $autores = count($investigadores);
        
         $resultado = getProductoPorGrupo($_SESSION['idGrupo']);
         $productos = 0;
-        while ($product =mysqli_fetch_array($resultado)) {
+
+        while ($product =mysqli_fetch_array($resultado)){
             $productos++;
 
             if($product ['ID_SUBTIPO']==5){ // Articulo A1
@@ -79,6 +84,36 @@
 
         //Indicador de grupo
         $indGrupo = (4 * $indClass_top) + (2.5 * $indClass_a) + (0.4 * $indCo) + (0.4 * $indCoop);
+
+        //cuartiles
+        $c1 = 4.2591270574687404;
+        $c2 = 1.0023213609251531;
+        $c3 = 0.5521696307892201;
+        $c4 = 0.2880068506227288;
+
+        $sql = "SELECT c.Nombre FROM categoria_invetsigador c, requisito_cat_invetsigador r, requisito_investigador ri, invetsigador i WHERE c.ID = r.ID_CATEGORIA_INVETSIGADOR AND r.ID = ri.ID_REQUISITO_INVESTIGADOR AND i.ID = ri.ID_INVESTIGADOR";
+
+        //Para A1
+        if($indClass_top == $c1){
+            if($clasificacionI == "Senior" || $clasificacionI == "Asociado"){
+                if($indCo > 0){
+                    if($indGrupo >= $c1){
+                        echo "Grupo de calsificación A1";
+                    }
+                }
+            }
+        }
+        //Para A
+        if($indClass_top >= 0 || $indClass_a >= 0){
+            if($clasificacionI == "Senior" || $clasificacionI ==    "Asociado"){
+                if($indCo > 0){
+                    if($indGrupo >= $c1){
+                        echo "Grupo de calsificación A1";
+                    }
+                }
+            }
+        }
+
     }
 ?>
 
