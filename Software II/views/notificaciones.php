@@ -34,7 +34,7 @@
                         <a href="datosGeneralesUbI.php" class="nav-link">Datos Generales</a>
                     </li>
                     <li class="nav-item">
-                        <a href="participaciónGI.php" class="nav-link">Participación GI</a>
+                        <a href="participacionGI.php" class="nav-link">Participación GI</a>
                     </li>
                     <li class="nav-item">
                         <a href="produccionUbI.php" class="nav-link">Producción</a>
