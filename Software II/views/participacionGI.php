@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    include("../models/conexion.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,18 +66,21 @@
             <tr>
                 <th>Nombre Grupo</th>
                 <th>Tiempo Duración</th>
-                <th>Cantidad Productos</th>
             </tr>
-            <tr>
-                <td>VirtualCore</td>
-                <td>5 años</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>Siiam</td>
-                <td>3 años</td>
-                <td>2</td>
-            </tr>
+            <?php 
+                $participaciones = getParticipacion($_SESSION['id']);
+                while($part = mysqli_fetch_array($participaciones)) {
+                    $datetime1 = date_create($part['INICIO']);
+                    $datetime2 = date_create($part['FIN']);
+                    $interval = date_diff($datetime1, $datetime2);
+                    echo "
+                    <tr>
+                    <td>".$part['NOMBRE']."</td>
+                    <td>".$interval->format('%m Meses %d Dias')."</td>
+                    </tr>
+                    ";
+                }
+            ?>
     </div>
     
 </body>

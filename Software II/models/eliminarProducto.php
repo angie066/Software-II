@@ -8,6 +8,8 @@
         if (mysqli_connect_errno()) {
             echo "Error en la conexión: " . mysqli_connect_error();
         }
+        $sql = "DELETE FROM PRODUCTOVINCULADOXGRUPO WHERE ID_CATEGORIA_PRODUCTO=$id;";
+        mysqli_query($con,$sql);
         $sql = "DELETE FROM PRODUCCION WHERE ID_CATEGORIA_PRODUCTO=$id;";
         if(mysqli_query($con,$sql)){
             $sql = "DELETE FROM CATEGORIA_PRODUCTO WHERE ID=$id;";
