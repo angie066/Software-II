@@ -169,7 +169,7 @@
 
                         <!--Footer de la ventana-->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>-->
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                             <button name="boton" type="submit" class="btn btn-primary" value="Crear">Crear</button>
                         </div>
                     </form>
