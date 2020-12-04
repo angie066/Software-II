@@ -20,7 +20,7 @@
                 mysqli_close($con);            
                 echo '<script language="javascript">';
                 echo 'alert("Se ha desvinculado ");';
-                echo 'window.location.href = "../views/investigadoresbGI.php";';
+                echo 'window.location.href = "../views/investigadoresUbGI.php";';
                 echo '</script>';
             } else {
                 /**  se cierra la conexion */
