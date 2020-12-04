@@ -190,27 +190,21 @@
                 <th></th>
             </tr>
             <tr>
-                <td rowspan="2">A1</td>
-                <td rowspan="2"><img id="chulo" src="../img/chulito.jpeg"></td>
-                <td><img id="chulo" src="../img/chulito.jpeg"></td>
-            </tr>
-            <tr>
-                <td><img id="chulo" src="../img/chulito.jpeg"></td>
+                <td>A1</td>
+                <td><img id="x" src="../img/x.jpeg"></td>
             </tr>
             <tr>
                 <td>A</td>
                 <td><img id="x" src="../img/x.jpeg"></td>
-                <td><img id="x" src="../img/x.jpeg"></td>
+
             </tr>
             <tr>
                 <td>B</td>
-                <td><img id="x" src="../img/x.jpeg"></td>
                 <td><img id="x" src="../img/x.jpeg"></td>
             </tr>
             <tr>
                 <td rowspan="2">C</td>
                 <td rowspan="2"><img id="x" src="../img/x.jpeg"></td>
-                <td><img id="x" src="../img/x.jpeg"></td>
             </tr>
     </div>
     
