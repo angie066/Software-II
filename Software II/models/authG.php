@@ -16,7 +16,7 @@ include ("../models/conexion.php");
                 }
                 echo '<script language="javascript">';
                 echo 'alert("Error Inicio de sesion, persona no es lider de grupo");';
-                echo 'window.location.href = "../views/inicioSesionUbI.php";';
+                echo 'window.location.href = "../views/inicioSesionUbGI.php";';
                 echo '</script>';
             } else {
                 echo '<script language="javascript">';
