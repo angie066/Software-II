@@ -1,5 +1,5 @@
 <?php
-    include_once ("conexion.php");
+    include_once ("conexion.php"); //Incluye el archivo conexion.php
     if(isset($_POST['nombre'])){
         $nombre = $_POST['nombre'];
         $fechaIn = $_POST['fechaIn'];
@@ -23,6 +23,7 @@
        if (mysqli_connect_errno()) {
            echo "Error en la conexión: " . mysqli_connect_error();
        }
+       //Inserción de datos
        $sql = "INSERT INTO INVESTIGADOR (NOMBRE, FECHA_NACIMIENTO, Correo, Codigo,
        Contrasenia, FECHA_INICIO, NIVEL_FORMACION, HORAS_DEDICADAS, EDAD, LIDER, ID_PROGRAMA_ACADEMICO,
        ID_NACIONALIDAD, ID_GRUPO, ID_ADMINISTRADOR) 
@@ -38,7 +39,7 @@
            echo '</script>';
            /**  se cierra la conexion */
            mysqli_close($con);
-           header("location:../views/inicioSesionUbI.php");
+           header("location:../views/inicioSesionUbI.php"); //lo manda a esa pagina si se hace correctamente el proceso de inserción
        }
        else{
            $error = mysqli_error($con);
@@ -47,7 +48,7 @@
            echo '</script>';
            /**  se cierra la conexion */
            mysqli_close($con);
-           header("location:../views/registrarseUBI.php");
+           header("location:../views/registrarseUBI.php");//lo manda a esa pagina si se hace incorrectamente el proceso de inserción
        }
    }
 ?>

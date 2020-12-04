@@ -1,5 +1,5 @@
 <?php
-    include_once ("conexion.php");
+    include_once ("conexion.php"); //Incluye el archivo conexion.php
     if(isset($_POST['eliminarP'])){
         $id = $_POST['eliminarP'];
 

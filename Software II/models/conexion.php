@@ -2,21 +2,21 @@
 /* incluye archivos de config*/
 include_once dirname(__FILE__) . '/config.php';
 
-/*Conexion a la base de datos*/
-
-function getNacionalidades() {
+function getNacionalidades() { //Trae nacionalidades
+	//Conexión a bases de datos
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
 		$str_datos.= "Error en la conexión: " . mysqli_connect_error();
 	}
+	//consulta
 	$sql = "SELECT * FROM NACIONALIDAD";
 	$resultado = mysqli_query($con,$sql);
 	mysqli_close($con);
 	return $resultado;
 }
 
-function getFacultades() {
+function getFacultades() { //Trae facultades
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -28,7 +28,7 @@ function getFacultades() {
 	return $resultado;
 }
 
-function getSubareas() {
+function getSubareas() { //Trae las subareas de conocimiento
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -40,7 +40,7 @@ function getSubareas() {
 	return $resultado;
 }
 
-function getCiudades() {
+function getCiudades() { //Trae ciudades
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -52,7 +52,7 @@ function getCiudades() {
 	return $resultado;
 }
 
-function getTipos() {
+function getTipos() { //Trae tipos de producto
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -64,7 +64,7 @@ function getTipos() {
 	return $resultado;
 }
 
-function getSubtipo() {
+function getSubtipo() { //Trae subtipos de productos
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -76,7 +76,7 @@ function getSubtipo() {
 	return $resultado;
 }
 
-function getArea() {
+function getArea() { //Trae área de conocimiento
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -88,7 +88,7 @@ function getArea() {
 	return $resultado;
 }
 
-function getUser($codigo, $correo) {
+function getUser($codigo, $correo) { //Trae usuario
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -100,7 +100,7 @@ function getUser($codigo, $correo) {
 	return $resultado;
 }
 
-function getUserAdmin($correo) {
+function getUserAdmin($correo) { //Trae administrador
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -112,7 +112,7 @@ function getUserAdmin($correo) {
 	return $resultado;
 }
 
-function getInvestigadores() {
+function getInvestigadores() { //Trae investigadores
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -124,7 +124,7 @@ function getInvestigadores() {
 	return $resultado;
 }
 
-function getClase() {
+function getClase() { //Trae clases de producto
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -136,7 +136,7 @@ function getClase() {
 	return $resultado;
 }
 
-function getProduct($id) {
+function getProduct($id) { //Trae los productos
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -167,7 +167,7 @@ function getProduct($id) {
 	return $resultado;
 }
 
-function getInvestigadoresGrupoNulo() {
+function getInvestigadoresGrupoNulo() { //Trae investigadores que no esten vinculados a un grupo
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -179,7 +179,7 @@ function getInvestigadoresGrupoNulo() {
 	return $resultado;
 }
 
-function getInvestigadoresPorIdGrupo($idGrupo) {
+function getInvestigadoresPorIdGrupo($idGrupo) { //Trae investigadores segun el id del grupo al que estan vinculados
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -191,7 +191,7 @@ function getInvestigadoresPorIdGrupo($idGrupo) {
 	return $resultado;
 }
 
-function getInvestigadoresNoLider() {
+function getInvestigadoresNoLider() { //Trae investigadores que no sean lideres
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -203,7 +203,7 @@ function getInvestigadoresNoLider() {
 	return $resultado;
 }
 
-function getInvestigadoresPorIdGrupoConLider($idGrupo) {
+function getInvestigadoresPorIdGrupoConLider($idGrupo) { //Trae investigadores que sean lideres y esten en un grupo
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -215,7 +215,7 @@ function getInvestigadoresPorIdGrupoConLider($idGrupo) {
 	return $resultado;
 }
 
-function getNotificacionesPorId($id) {
+function getNotificacionesPorId($id) { //Hace la consulta para saber que producto va a vincular el lider del grupo y le llegue la notificacion al investigador
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -241,7 +241,7 @@ function getNotificacionesPorId($id) {
 	return $resultado;
 }
 
-function getProductoPorGrupo($id) {
+function getProductoPorGrupo($id) { //Trae por productos que esten en un grupo
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {
@@ -276,7 +276,7 @@ function getProductoPorGrupo($id) {
 	mysqli_close($con);
 	return $resultado;
 }
-function getUserById($id) {
+function getUserById($id) { //Trae los usuarios por id
 	$con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
 	$str_datos = "";
 	if (mysqli_connect_errno()) {

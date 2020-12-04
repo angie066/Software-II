@@ -1,5 +1,5 @@
 <?php
-    include_once ("conexion.php");
+    include_once ("conexion.php"); //Incluye el archivo conexion.php
     if(isset($_POST['nameP2'])){
         $nombre = $_POST['nameP2'];
         $subtipo = $_POST['subTipo2'];
@@ -11,7 +11,7 @@
        if (mysqli_connect_errno()) {
            echo "Error en la conexión: " . mysqli_connect_error();
        }
-       // 
+       //Actualizacion de los datos en la tabla
        $sql = "UPDATE CATEGORIA_PRODUCTO SET NOMBRE = '$nombre', ID_SUBTIPO_PRODUCTO = $subtipo WHERE ID = $id";
 
        if(mysqli_query($con,$sql)){
