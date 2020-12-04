@@ -56,7 +56,6 @@ include("../models/conexion.php");
     </nav>
     <br>
     <div>
-        <img id="user" src="../img/user.jpg" class="rounded-circle">
         <img id="campana" src="../img/campana.jpg" class="rounded-circle"><hr>
     </div>
     <div class="text-center">
@@ -81,10 +80,10 @@ include("../models/conexion.php");
                         <?php 
                             $cod1 = $_SESSION["codI"];
                             $conn = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
-                            $consulta_mysql="SELECT i.NOMBRE as nomInv, p.NOMBRE as nomProg, f.NOMBRE as nomFac, g.NOMBRE as nomGru, i.NIVEL_FORMACION as nivelI, i.FECHA_NACIMIENTO as fNac from    INVESTIGADOR i INNER JOIN GRUPO g ON i.ID_GRUPO=g.ID, PROGRAMA_ACADEMICO p INNER JOIN  FACULTAD f ON p.ID_FACULTAD=f.ID WHERE i.ID_PROGRAMA_ACADEMICO=p.ID AND i.CODIGO=$cod1";
+                            $consulta_mysql="SELECT i.NOMBRE AS NOMBRE_INV, i.FECHA_NACIMIENTO, i.NIVEL_FORMACION, p.NOMBRE AS NOMBREP, f.NOMBRE AS NOMBREF, g.NOMBRE AS NOMBREG FROM investigador i INNER JOIN programa_academico p ON  i.ID_PROGRAMA_ACADEMICO = p.ID INNER JOIN facultad f ON p.ID_FACULTAD = f.ID LEFT JOIN grupo g ON i.ID_GRUPO = g.ID WHERE i.CODIGO = $cod1";
                             $result = mysqli_query($conn, $consulta_mysql);
-                            while($fila = mysqli_fetch_assoc($result)){
-                                echo "<th>".$fila['nomInv']."</th><td>".$fila["nivelI"]."</td><td>".$fila["fNac"]."</td><td>".$fila["nomProg"]."</td><td>".$fila["nomFac"]."</td><td>".$fila["nomGru"]."</td>";
+                            while($fila = mysqli_fetch_array($result)){
+                                echo "<th>".$fila['NOMBRE_INV']."</th><td>".$fila["NIVEL_FORMACION"]."</td><td>".$fila["FECHA_NACIMIENTO"]."</td><td>".$fila["NOMBREP"]."</td><td>".$fila["NOMBREF"]."</td><td>".($fila["NOMBREG"]== null ? '' : $fila["NOMBREG"])."</td>";
                             }		
                         ?>
                     </tr>
