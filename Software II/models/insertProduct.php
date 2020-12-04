@@ -17,7 +17,9 @@
        }
        $sql = "INSERT INTO CATEGORIA_PRODUCTO (NOMBRE, DESCRIPCION, ID_SUBTIPO_PRODUCTO) 
        VALUES ('$nombre', '$descripcion', $subtipo)";
-
+        if(empty($id_g)) {
+            $id_g ='null';
+        }
        if(mysqli_query($con,$sql)){
         $id_c = mysqli_insert_id($con);
         $sql= "INSERT INTO PRODUCCION (ID_CATEGORIA_PRODUCTO, ID_INVESTIGADOR, ID_GRUPO) 
