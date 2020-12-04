@@ -2,6 +2,7 @@
     session_start();
     $id_i = $_SESSION['id'];
     $id_g = $_SESSION['idGrupo'];
+        
     include_once ("conexion.php");
     if(isset($_POST['claseP'])){
         $nombre = $_POST['nombre'];
@@ -9,7 +10,6 @@
         $subtipo = $_POST['subTipo'];
         $tipo = $_POST['tipo'];
         $claseP = $_POST['claseP'];
-
        /** Se abre la conexión */
        $con = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
        if (mysqli_connect_errno()) {
@@ -17,13 +17,20 @@
        }
        $sql = "INSERT INTO CATEGORIA_PRODUCTO (NOMBRE, DESCRIPCION, ID_SUBTIPO_PRODUCTO) 
        VALUES ('$nombre', '$descripcion', $subtipo)";
+       
         if(empty($id_g)) {
             $id_g ='null';
         }
+
        if(mysqli_query($con,$sql)){
+        echo "listo2";
         $id_c = mysqli_insert_id($con);
+  
+
+    
         $sql= "INSERT INTO PRODUCCION (ID_CATEGORIA_PRODUCTO, ID_INVESTIGADOR, ID_GRUPO) 
         VALUES ($id_c, $id_i, $id_g)";
+        
         /**  se cierra la conexion */
         if(mysqli_query($con,$sql)) {
             echo '<script language="javascript">';
@@ -34,8 +41,6 @@
             echo "Error: ".mysqli_error($con);
             mysqli_close($con);
         }
-
-
        }
        else{
            $error = mysqli_error($con);
